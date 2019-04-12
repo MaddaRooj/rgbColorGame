@@ -1,3 +1,4 @@
+// Too many vars...
 var numSquares = 6;
 var colors = generateRandomColors(numSquares);
 var squares = document.querySelectorAll('.square');
@@ -10,10 +11,15 @@ var easyBtn = document.querySelector('#easyBtn');
 var hardBtn = document.querySelector('#hardBtn');
 
 easyBtn.addEventListener('click', function(){
+    // removes hard mode
     hardBtn.classList.remove('selected');
+    // selects easy mode
     easyBtn.classList.add('selected');
+    // changes number of choices to three
     numSquares = 3;
+    // generates three random colors
     colors = generateRandomColors(numSquares);
+    // selects correct color choice
     pickedColor = pickColor();
     colorDisplay.textContent = pickedColor;
     for(var i = 0; i < squares.length; i++){
@@ -27,9 +33,13 @@ easyBtn.addEventListener('click', function(){
 });
 
 hardBtn.addEventListener('click', function(){
+    // removes easy mode
     easyBtn.classList.remove('selected');
+    // selects hard mode
     hardBtn.classList.add('selected');
+    // changes number of choices to six
     numSquares = 6;
+    // generates random colors on squares
     colors = generateRandomColors(numSquares);
     pickedColor = pickColor();
     colorDisplay.textContent = pickedColor;
@@ -42,7 +52,7 @@ hardBtn.addEventListener('click', function(){
 resetButton.addEventListener('click', function(){
     // generate new colors
     colors = generateRandomColors(numSquares);
-    // pick new random color from array
+    // pick new random color
     pickedColor = pickColor();
     // change colorDisplay to match picked color
     colorDisplay.textContent = pickedColor;
@@ -52,6 +62,7 @@ resetButton.addEventListener('click', function(){
     for(var i = 0; i < squares.length; i++){
         squares[i].style.backgroundColor = colors[i];
     }
+    // resets the color of the h1 background
     h1.style.backgroundColor = "steelblue";
 })
 
